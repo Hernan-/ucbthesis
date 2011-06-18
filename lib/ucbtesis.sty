@@ -1,0 +1,61 @@
+%%
+% Solo para texto de ejemplo
+\usepackage{lipsum}
+
+%%
+%Márgenes: 2.5 cm. derecha , 3 cm. del lado de la encuadernación y 2.5 cm. arriba y abajo.
+\usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=3cm]{geometry}
+
+%%
+% Paquete usado para que LaTeX acepte los caracteres latinos como las vocales acentuadas
+\usepackage[latin1]{inputenc}
+
+%%
+%Arial como fuente por defecto 
+% \usepackage[T1]{fontenc}
+% \usepackage[scaled]{uarial}
+% \renewcommand*\familydefault{\sfdefault}
+\usepackage{arial} 
+\renewcommand{\rmdefault}{phv} % Arial 
+\renewcommand{\sfdefault}{phv} % Arial 
+% \usepackage[OT4,OT1,T1]{fontenc} 
+% \usepackage[scaled]{uarial} 
+% \renewcommand*\familydefault{\sfdefault}
+
+%%
+%1.5 de espacio entre lineas
+% \linespread{1.3}
+\renewcommand{\baselinestretch}{1.5}
+
+%Espaciado doble entre parrafos
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}%
+
+%%
+%Los números de página se pondrán en la esquina inferior externa
+\usepackage{fancyhdr}
+% \pagestyle{fancy}
+\fancyfoot{}
+\rfoot{\thepage}
+
+%Corrige el error de que en paginas como el indices no haga el efecto
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[R]{\MakeUppercase \thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter. #1}}{}} % Formato para el capítulo: N. Nombre
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}} % Formato para la sección: N.M. Nombre
+\setlength{\headheight}{1.5\headheight} % Aumenta la altura del encabezado en una vez y media
+%%
+%
+\renewcommand\contentsname{Índice General}
+\renewcommand\listfigurename{Índice de Figuras}
+\renewcommand\listtablename{Índice de Tablas}
+\renewcommand\bibname{Bibliografía}
+\renewcommand\indexname{Índice}
+\renewcommand\figurename{Figura}
+\renewcommand\tablename{Tabla}
+\renewcommand\partname{Parte}
+\renewcommand\chaptername{Capitulo}
+\renewcommand\appendixname{Apéndice}

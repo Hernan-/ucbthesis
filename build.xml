@@ -1,0 +1,41 @@
+<project name="ucbthesis" default="make" basedir=".">
+	<description>
+        UCB Tesis
+    </description>
+	<property name="build" location="build"/>
+	<target name="clean">
+		<delete dir="${build}"/>
+	</target>
+	<target name="init" depends="clean">
+		<mkdir dir="${build}"/>
+	</target>
+	<target name="make" depends="init" description="Generar el PDF">
+		<echo level="info" message="Primera compilacion" />
+		<exec dir="" executable="pdflatex">
+			<arg value="-output-directory" />
+				<arg value="${build}" />
+			<arg value="main.tex" />
+		</exec>
+		<echo level="info" message="Segunda compilacion" />
+		<exec dir="" executable="pdflatex">
+			<arg value="-output-directory" />
+				<arg value="${build}" />
+			<arg value="main.tex" />
+		</exec>
+		<ant target="cleam-tmp" />
+	</target>
+	<target name="cleam-tmp" description="Eliminar Archivos Temporales">
+		<delete>
+			<fileset dir="${build}" excludes="**/*.pdf" />
+		</delete>
+	</target>
+<!-- 	<target name="gen">
+		<exec  />
+	</target> -->
+	<target name="zip">
+		<zip destfile="ucbthesis.zip"
+    		basedir="."
+    		excludes="**/build.xml"
+  		/>
+	</target>
+</project>
